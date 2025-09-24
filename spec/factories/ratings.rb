@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :rating do
-    value { 1 }
-    post { nil }
-    user { nil }
+    value { 5 }
+    association :post
+    association :user
   end
 end

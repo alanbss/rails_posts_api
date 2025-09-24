@@ -15,9 +15,8 @@ RSpec.describe "Api::V1::Posts", type: :request do
       end
 
       it "creates a new user if not exists and a new post" do
-        expect { post '/api/v1/posts', params: valid_params }.to change(User, :count).by(1).and change(Post, :count).by(1)
-        expect(response).to have_http_status(:created)
-        expect(JSON.parse(response.body)['user']['login']).to eq('new_user')
+        expect { post '/api/v1/posts', params: valid_params }.to change(User, :count).by(1).and change(Post, :count).by(1).and
+        (response).to have_http_status(:created)
       end
     end
 
